@@ -176,7 +176,7 @@ if __name__ == '__main__':
     # 功能3：SwanLab 初始化，将 config 中的重要超参数同步到后台
     swanlab.init(
         project="iESegNet",
-        experiment_name="DINO_Fusion_Training",
+        experiment_name="DINO_Fusion_Training_opt",
         config={
             "epoch": cfg.epoch,
             "lr": cfg.lr,

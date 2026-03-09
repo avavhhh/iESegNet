@@ -7,7 +7,7 @@ class Config:
     epoch = 180
     lr = 1e-4
     grad_norm = 0.5
-    batchsize = 8
+    batchsize = 16
     weight_decay = 1e-5
     momentum = 0.9  # 原本的 mt 参数
     power = 0.5
@@ -40,4 +40,5 @@ class Config:
     # ==========================
     print_freq = 20  # 每多少个step打印一次日志
     save_freq = 30  # 每多少个epoch保存一次权重
+
 

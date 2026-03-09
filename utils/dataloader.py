@@ -73,7 +73,7 @@ class PolypDataset(Dataset):
         self.size = len(self.images)
         self.augmentations = augmentations
         self.resize = transforms.Resize((self.trainsize, self.trainsize))
-        self.rotate = RandomRotate(degrees=(0, 360))
+        self.rotate = RandomRotate(degrees=(-45, 45))
         self.vf = RandomVerticalFlip(p=0.5)
         self.hf = RandomHorizontalFlip(p=0.5)
         # self.img_transform = transforms.Compose([

@@ -137,14 +137,14 @@ class DeepSupervisionLoss(nn.Module):
 
     def forward(self, pred, gt):
         d0, d1, d2, d3, d4= pred[0:]
-        loss0 = self.criterion(torch.sigmoid(d0), gt)
+        loss0 = self.criterion(torch.sigmoid(d0), gt) * 1
         gt = F.interpolate(gt, scale_factor=0.5, mode='bilinear', align_corners=True)
-        loss1 = self.criterion(torch.sigmoid(d1), gt)
+        loss1 = self.criterion(torch.sigmoid(d1), gt) * 0.5
         gt = F.interpolate(gt, scale_factor=0.5, mode='bilinear', align_corners=True)
-        loss2 = self.criterion(torch.sigmoid(d2), gt)
+        loss2 = self.criterion(torch.sigmoid(d2), gt) * 0.25
         gt = F.interpolate(gt, scale_factor=0.5, mode='bilinear', align_corners=True)
-        loss3 = self.criterion(torch.sigmoid(d3), gt)
+        loss3 = self.criterion(torch.sigmoid(d3), gt) * 0.1
         gt = F.interpolate(gt, scale_factor=0.5, mode='bilinear', align_corners=True)
-        loss4 = self.criterion(torch.sigmoid(d4), gt)
+        loss4 = self.criterion(torch.sigmoid(d4), gt) * 0.05
 
         return loss0 + loss1 + loss2 + loss3 + loss4
